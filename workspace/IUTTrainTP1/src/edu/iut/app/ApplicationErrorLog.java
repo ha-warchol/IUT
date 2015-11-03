@@ -12,6 +12,5 @@ public class ApplicationErrorLog extends AbstractApplicationLog {
 		this.message = message;
 		super.fireMessage("[ERROR]", this.message);
 	}
-
-
+	
 }
