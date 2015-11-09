@@ -7,8 +7,8 @@ public interface IApplicationLog {
 	  - addListener
 	  - getApplicationLogListeners();
 	*/
-	void setMessage(String message);
-	String getMessage();
-	void addListener(IApplicationLogListener listener);
-	IApplicationLogListener[] getApplicationLogListeners();
+	public void setMessage(String message);
+	public String getMessage();
+	public void addListener(IApplicationLogListener listener);
+	public IApplicationLogListener[] getApplicationLogListeners();
 }

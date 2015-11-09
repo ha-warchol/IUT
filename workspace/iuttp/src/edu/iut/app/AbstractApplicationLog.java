@@ -25,18 +25,13 @@ public abstract class AbstractApplicationLog implements IApplicationLog {
 	}
 	
 	public IApplicationLogListener[] getApplicationLogListeners(){
-		IApplicationLogListener[] tabListeners = new IApplicationLogListener[listeners.size()];
-		for(int i = 0; i < listeners.size(); i++) {
-			tabListeners[i] = listeners.get(i);
-		}
-		return tabListeners;
+		return (IApplicationLogListener[])listeners.toArray();
 	}
-	
 
 	/** Listener action */
 	protected void fireMessage(String level, String message) {
 		for (IApplicationLogListener listener_i : listeners) {
-			listener_i.newMessage(level, message);
+			listener_i.newMessage(level, this.message);
 		}
 	}
 }
