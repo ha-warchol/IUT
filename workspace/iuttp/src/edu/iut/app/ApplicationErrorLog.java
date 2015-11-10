@@ -2,8 +2,6 @@ package edu.iut.app;
 
 public class ApplicationErrorLog extends AbstractApplicationLog {
 
-	/** Ajouter un tableau ou profiter de l'héritage ? */
-	/** Héritage */
 	public ApplicationErrorLog() {
 		super();
 	}
@@ -11,9 +9,9 @@ public class ApplicationErrorLog extends AbstractApplicationLog {
 	@Override
 	public void setMessage(String message) {
 		this.message = message;
-		for(int i = 0; i < listeners.size(); i++){
-			listeners.get(i).newMessage("[ERROR]", this.message);
-		}
+		ApplicationSession.instance().getGUILogger().severe(this.message);
+		super.fireMessage("[ERROR]", this.message);
 	}
-	
+
+
 }
