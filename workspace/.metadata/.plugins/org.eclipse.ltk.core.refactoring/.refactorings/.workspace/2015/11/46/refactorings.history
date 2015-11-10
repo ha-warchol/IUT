@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename Java project &apos;IUTTrainTP1&apos; to &apos;iuttp&apos;&#x0A;- Original element: &apos;IUTTrainTP1&apos;&#x0A;- Renamed element: &apos;IUTTrainTP1&apos;&#x0A;- Update references to refactored element" description="Rename Java project &apos;IUTTrainTP1&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=IUTTrainTP1" name="iuttp" references="true" stamp="1447073303844" version="1.0"/>
-</session>
