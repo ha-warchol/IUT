@@ -6,6 +6,10 @@ public class ApplicationErrorLog extends AbstractApplicationLog {
 		super();
 	}
 	
+	/**
+	 * @param message
+	 * Initialise tous les logs avec le message passé en paremètre 
+	 */
 	@Override
 	public void setMessage(String message) {
 		this.message = message;
