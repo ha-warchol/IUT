@@ -28,10 +28,17 @@ public class WeekPanel extends EventPanel {
 			this.shortName = shortName;
 		}
 		
+		/**
+		 * 
+		 * @return Nom court de la traduction
+		 */
 		public String getShortName() {
 			return shortName;
 		}
 		
+		/**
+		 * @return Nom complet de la traduction
+		 */
 		public String toString() {
 			return name;
 		}

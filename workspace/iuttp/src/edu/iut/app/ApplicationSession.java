@@ -29,7 +29,10 @@ public class ApplicationSession {
 		sessionExceptionLogger.setLevel(Level.ALL);
 	}
 	
-	
+	/**
+	 * 
+	 * @return Point d'accès pour l'instance du singleton
+	 */
 	static public ApplicationSession instance() {
 		if (session == null) {			
 			session = new ApplicationSession();
@@ -37,19 +40,38 @@ public class ApplicationSession {
 		return session;
 	}
 	
+	/**
+	 *
+	 * @return Une instance de Logger qui correspond au logger du GUI de la session
+	 */
 	public Logger getGUILogger() {
 		return sessionGuiLogger;
 	}
+	/**
+	 * 
+	 * @return Une instance de Logger qui correspond au logger des Exceptions
+	 */
 	public Logger getExceptionLogger() {
 		return sessionExceptionLogger;
 	}
 	
+	/**
+	 * 
+	 * @param locale
+	 * Nouvelle langue pour le programme
+	 */ 
 	public void setLocale(Locale locale){
 		this.locale = locale;
 		Locale.setDefault(this.locale);
 		resourceBundle=ResourceBundle.getBundle("edt.iut.resources.strings.res");
 	}
 	
+	/**
+	 * 
+	 * @param key
+	 * La clé de la traduction du mot
+	 * @return Renvoie la traduction correspondant à la clé
+	 */
 	public String getString(String key) {
 		return resourceBundle.getString(key);
 	}

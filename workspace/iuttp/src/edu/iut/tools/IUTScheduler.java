@@ -8,7 +8,7 @@ import javax.swing.SwingUtilities;
 
 public class IUTScheduler {
 	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
+		Locale.setDefault(Locale.FRANCE);
 		SwingUtilities.invokeLater(new Runnable() {
 		    public void run() {
 		        JFrame mainFrame = new edu.iut.gui.frames.SchedulerFrame("IUT Scheduler");
