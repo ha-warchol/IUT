@@ -8,6 +8,10 @@ public class ApplicationLogs extends ArrayList<IApplicationLog> {
 	public ApplicationLogs() {		
 	}
 	
+	/**
+	 * 
+	 * @return ArrayList de logs si ce sont des erreurs
+	 */
 	public ArrayList<IApplicationLog> getErrors() {
 		ArrayList<IApplicationLog> filteredLogs = new ArrayList<IApplicationLog>();
 		for (IApplicationLog a : this) {
@@ -17,6 +21,10 @@ public class ApplicationLogs extends ArrayList<IApplicationLog> {
 		}
 		return filteredLogs;
 	}
+	/**
+	 * 
+	 * @return ArrayList de logs si ce sont des warnings
+	 */
 	public ArrayList<IApplicationLog> getWarnings() {
 		ArrayList<IApplicationLog> filteredLogs = new ArrayList<IApplicationLog>();
 		for (IApplicationLog a : this) {
@@ -26,6 +34,10 @@ public class ApplicationLogs extends ArrayList<IApplicationLog> {
 		}
 		return filteredLogs;
 	}
+	/**
+	 * 
+	 * @return ArrayList de logs si ce sont des informations
+	 */
 	public ArrayList<IApplicationLog> getInfos() {
 		ArrayList<IApplicationLog> filteredLogs = new ArrayList<IApplicationLog>();
 		for (IApplicationLog a : this) {
