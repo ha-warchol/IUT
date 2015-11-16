@@ -20,13 +20,12 @@ public class ApplicationSession {
 	private static ApplicationSession session = null;
 	private ApplicationSession() {
 		/* Definir US comme locale par défaut */
-		Locale.setDefault(Locale.US);
+		locale = new Locale("us", "EN");
 		locale = Locale.getDefault();
-		resourceBundle = ResourceBundle.getBundle("edt.iut.resources.strings.res");
-		sessionGuiLogger = sessionGuiLogger.getLogger("Mon logger");
-		
+		resourceBundle = ResourceBundle.getBundle("edu.iut.resources.strings.res");
+		sessionGuiLogger = Logger.getLogger("Logger");
 		sessionGuiLogger.setLevel(Level.ALL);
-		sessionExceptionLogger = sessionExceptionLogger.getLogger("Logger d'exceptions");
+		sessionExceptionLogger = Logger.getLogger("Exception");
 		sessionExceptionLogger.setLevel(Level.ALL);
 	}
 	
@@ -48,7 +47,7 @@ public class ApplicationSession {
 	public void setLocale(Locale locale){
 		this.locale = locale;
 		Locale.setDefault(this.locale);
-		resourceBundle=ResourceBundle.getBundle("res_fr.properties");
+		resourceBundle=ResourceBundle.getBundle("edt.iut.resources.strings.res");
 	}
 	
 	public String getString(String key) {
