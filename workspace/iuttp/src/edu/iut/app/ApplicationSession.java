@@ -7,32 +7,38 @@ import java.util.logging.Logger;
 
 public class ApplicationSession {
 	
-	// Exercice 1 : Gérer l'internationation
 	protected ResourceBundle resourceBundle;
 	protected Locale locale;
-	
-	
-	// Exercice 2 : Logger
 	protected Logger sessionGuiLogger;
 	protected Logger sessionExceptionLogger;
+	protected String[] months;
+	protected String[] days;
 
 
 	private static ApplicationSession session = null;
 	private ApplicationSession() {
-		/* Definir US comme locale par défaut */
-		locale = new Locale("us", "EN");
 		locale = Locale.getDefault();
 		resourceBundle = ResourceBundle.getBundle("edu.iut.resources.strings.res");
-		sessionGuiLogger = Logger.getLogger("Logger");
+		sessionGuiLogger = Logger.getLogger("IUTTrain");
 		sessionGuiLogger.setLevel(Level.ALL);
-		sessionExceptionLogger = Logger.getLogger("Exception");
+		sessionExceptionLogger = Logger.getLogger("IUTException");
 		sessionExceptionLogger.setLevel(Level.ALL);
+		
+		days = new String[7];
+		days[0] = getString("monday"); days[1] =  getString("tuesday"); days[2] =  getString("wednesday");
+		days[3] = getString("thursday");   days[4] =  getString("friday"); days[5] =  getString("saturday");
+		days[6] = getString("sunday"); 
+		
+		months = new String[12];
+		months[0] = getString("january"); months[1] =  getString("february"); months[2] =  getString("march");
+		months[3] = getString("april");   months[4] =  getString("may");      months[5] =  getString("june");
+		months[6] = getString("july"); months[7] =  getString("august"); months[8] =  getString("september");
+		months[9] = getString("october"); months[10] =  getString("november"); months[11] =  getString("december");
+		
+		
 	}
 	
-	/**
-	 * 
-	 * @return Point d'accès pour l'instance du singleton
-	 */
+	
 	static public ApplicationSession instance() {
 		if (session == null) {			
 			session = new ApplicationSession();
@@ -40,40 +46,28 @@ public class ApplicationSession {
 		return session;
 	}
 	
-	/**
-	 *
-	 * @return Une instance de Logger qui correspond au logger du GUI de la session
-	 */
 	public Logger getGUILogger() {
 		return sessionGuiLogger;
 	}
-	/**
-	 * 
-	 * @return Une instance de Logger qui correspond au logger des Exceptions
-	 */
 	public Logger getExceptionLogger() {
 		return sessionExceptionLogger;
 	}
 	
-	/**
-	 * 
-	 * @param locale
-	 * Nouvelle langue pour le programme
-	 */ 
 	public void setLocale(Locale locale){
 		this.locale = locale;
 		Locale.setDefault(this.locale);
-		resourceBundle=ResourceBundle.getBundle("edt.iut.resources.strings.res");
+		resourceBundle=ResourceBundle.getBundle("edu.iut.resources.strings.res");
 	}
 	
-	/**
-	 * 
-	 * @param key
-	 * La clé de la traduction du mot
-	 * @return Renvoie la traduction correspondant à la clé
-	 */
 	public String getString(String key) {
 		return resourceBundle.getString(key);
+	}
+	
+	public String[] getDays() {
+		return days;
+	}
+	public String[] getMonths() {
+		return months;
 	}
 	
 	

@@ -30,10 +30,6 @@ public abstract class AbstractApplicationLog implements IApplicationLog {
 		return (IApplicationLogListener[])listeners.toArray();
 	}
 	
-	/**
-	 * @param level, message
-	 * Affiche le message
-	 */
 	protected void fireMessage(String level, String message) {
 		for (IApplicationLogListener listener_i : listeners) {
 			listener_i.newMessage(level, message);

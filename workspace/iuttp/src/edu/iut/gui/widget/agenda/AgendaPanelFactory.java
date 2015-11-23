@@ -29,12 +29,7 @@ public class AgendaPanelFactory {
 	
 	public AgendaPanelFactory() {
 	}
-	/**
-	 * 
-	 * @param activeView
-	 * Vue active
-	 * @return Vue modifiée
-	 */
+	
 	public JPanel getAgendaView(ActiveView activeView) {
 		JPanel agendaView = null;
 		switch (activeView) {
