@@ -2,5 +2,5 @@ package edu.iut.app;
 import java.util.List;
 
 public interface Criteria {
-	public List meetCriteria(List<ExamEvent> exams);
+	public List<?> meetCriteria(List<ExamEvent> exams);
 }

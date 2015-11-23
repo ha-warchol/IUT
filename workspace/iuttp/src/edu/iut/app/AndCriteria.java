@@ -10,7 +10,7 @@ public class AndCriteria implements Criteria {
 		this.otherCriteria = othercriteria;
 	}
 	public List meetCriteria(List<ExamEvent> exam){
-		List firstCriteria = criteria.meetCriteria(exam);
+		List<?> firstCriteria = criteria.meetCriteria(exam);
 		return otherCriteria.meetCriteria(firstCriteria);
 		
 	}

@@ -1,6 +1,10 @@
 package edu.iut.app;
 
+<<<<<<< HEAD
 public class CommandLineOption /* EX1 : CLASSE GENERIC SUR le type ValueType */ <ValueType> {
+=======
+public class CommandLineOption <ValueType>/* EX1 : CLASSE GENERIC SUR le type ValueType */ {
+>>>>>>> f73222c3651fa8e5779584886ca257dd153d6947
 	
 	public enum OptionType{
 		NONE("None"),
@@ -31,17 +35,27 @@ public class CommandLineOption /* EX1 : CLASSE GENERIC SUR le type ValueType */ 
 	public CommandLineOption(final OptionType optionType, final String key, final String description, final ValueType defaultValue) {
 		/* EX1 : Affecter les attributs */
 		this.optionType=optionType;
+<<<<<<< HEAD
 		this.key = key;
 		this.description = description;
 		this.defaultValue = defaultValue;
 		
+=======
+		this.key=key;
+		this.description=description;
+		this.defaultValue=defaultValue;
+>>>>>>> f73222c3651fa8e5779584886ca257dd153d6947
 	}
 	public void setOption(OptionType optionType, String key, String description, ValueType defaultValue) {
 		/* EX1 : Affecter les attributs */
 		this.optionType=optionType;
 		this.key=key;
 		this.description=description;
+<<<<<<< HEAD
 		this.defaultValue = defaultValue;
+=======
+		this.defaultValue=defaultValue;
+>>>>>>> f73222c3651fa8e5779584886ca257dd153d6947
 	}
 	public void setValue(ValueType value) {
 		this.value = value;
