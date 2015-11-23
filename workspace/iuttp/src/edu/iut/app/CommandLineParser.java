@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.io.File;
 
-public class CommandLineParser {
+public class CommandLineParser<ValueType> {
 	
-	protected HashMap<String, CommandLineOption /* EX1: option generique */> options;
+	protected HashMap<String, CommandLineOption<ValueType>> options;
 	protected ArrayList<String> parseErrors;
 		
 	public CommandLineParser() {
-		options = new HashMap<String, CommandLineOption<?> >();
+		options = new HashMap<String, CommandLineOption<ValueType>>();
 		parseErrors = new ArrayList<String>();
 	}
 	
 	public void addOption(CommandLineOption<?> option) {
 		if (option != null) {
-			options.put(option.getKey(),option);
+			options.put(option.getKey(),(CommandLineOption<ValueType>) option);
 		}
 	}
 	
