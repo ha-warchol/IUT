@@ -6,19 +6,11 @@ import java.io.File;
 
 public class CommandLineParser<ValueType> {
 	
-<<<<<<< HEAD
-	protected HashMap<String, CommandLineOption/* EX1: option generique */> options;
-	protected ArrayList<String> parseErrors;
-		
-	public CommandLineParser() {
-		options = new HashMap<String, CommandLineOption<> >();
-=======
 	protected HashMap<String, CommandLineOption<ValueType>> options;
 	protected ArrayList<String> parseErrors;
 		
 	public CommandLineParser() {
 		options = new HashMap<String, CommandLineOption<ValueType>>();
->>>>>>> f73222c3651fa8e5779584886ca257dd153d6947
 		parseErrors = new ArrayList<String>();
 	}
 	
