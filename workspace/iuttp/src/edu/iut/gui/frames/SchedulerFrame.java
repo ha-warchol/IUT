@@ -26,9 +26,9 @@ public class SchedulerFrame extends JFrame {
 	JPanel dayView;
 	JPanel weekView;
 	JPanel monthView;
-	
+
 	protected void setupUI() {
-		
+
 		contentPane = new JPanel();
 		layerLayout = new CardLayout();
 		contentPane.setLayout(layerLayout);
@@ -37,54 +37,77 @@ public class SchedulerFrame extends JFrame {
 		dayView = agendaPanelFactory.getAgendaView(ActiveView.DAY_VIEW);
 		weekView = agendaPanelFactory.getAgendaView(ActiveView.WEEK_VIEW);
 		monthView = agendaPanelFactory.getAgendaView(ActiveView.MONTH_VIEW);
-		
+
 		contentPane.add(dayView,ActiveView.DAY_VIEW.name());
 		contentPane.add(weekView,ActiveView.WEEK_VIEW.name());
 		contentPane.add(monthView,ActiveView.MONTH_VIEW.name());
-	
+
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,agendaViewPanel, contentPane);
 		this.setContentPane(splitPane);
-		
+
 		JMenuBar menuBar = new JMenuBar();
-		JMenu menu;		
-		JMenuItem menuItem;
-		
+		JMenu menu, menu2, menu2_3, menu3;	
+		JMenuItem menuItem, menuItem2, menuItem3;
+
 		/* File Menu */
 		/** EX4 : MENU : UTILISER L'AIDE FOURNIE DANS LE TP**/
-		
-		
-		menu = new JMenu("File");
-		
-		
-		this.setJMenuBar(menuBar);
-		this.pack();
-		layerLayout.next(contentPane);
-	}
-	
-	public SchedulerFrame() {
-		super();
-		
-		addWindowListener (new WindowAdapter(){
-			public void windowClosing (WindowEvent e){
-				System.exit(0);
-			}
-		});
-		contentPane = null;
-		dayView = null;
-		weekView = null;
-		monthView = null;
-		agendaPanelFactory = null;
-		setupUI();
 
-	}
-	public SchedulerFrame(String title) {
-		super(title);
-		addWindowListener (new WindowAdapter(){
-			public void windowClosing (WindowEvent e){
-				System.exit(0);
+
+		menu = new JMenu("File");
+		menu2 = new JMenu("Edit");
+		menu2_3 = new JMenu("View");
+		menu3 = new JMenu("Help");
+		menuItem = new JMenuItem("Month");
+		menuItem2 = new JMenuItem("Day");
+		menuItem3 = new JMenuItem("Week");
+		menu.add(menu2);
+		menu2.add(menuItem);
+		menu2.add(menuItem2);
+		menu2.add(menuItem3);
+		menuBar.add(menu);
+		menuBar.add(menu2);
+		menuBar.add(menu3);
+		menuItem3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				agendaViewPanel.next(contentPane.weekView);
 			}
 		});
-		setupUI();
-	}
-	
+		menuItem3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				agendaViewPanel.next(contentPane);
+			}
+		});
+
+
+	this.setJMenuBar(menuBar);
+	this.pack();
+	layerLayout.next(contentPane);
+}
+
+public SchedulerFrame() {
+	super();
+
+	addWindowListener (new WindowAdapter(){
+		public void windowClosing (WindowEvent e){
+			System.exit(0);
+		}
+	});
+	contentPane = null;
+	dayView = null;
+	weekView = null;
+	monthView = null;
+	agendaPanelFactory = null;
+	setupUI();
+
+}
+public SchedulerFrame(String title) {
+	super(title);
+	addWindowListener (new WindowAdapter(){
+		public void windowClosing (WindowEvent e){
+			System.exit(0);
+		}
+	});
+	setupUI();
+}
+
 }

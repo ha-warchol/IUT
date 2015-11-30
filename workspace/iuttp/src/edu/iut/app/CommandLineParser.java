@@ -14,7 +14,7 @@ public class CommandLineParser<ValueType> {
 		parseErrors = new ArrayList<String>();
 	}
 	
-	public void addOption(CommandLineOption<?> option) {
+	public void addOption(CommandLineOption<ValueType> option) {
 		if (option != null) {
 			options.put(option.getKey(),(CommandLineOption<ValueType>) option);
 		}
@@ -35,7 +35,26 @@ public class CommandLineParser<ValueType> {
 						}
 						break;
 					/* EX1 : reproduire le comportement de 'case FILE', pour STRING,INTEGER, ... */
-
+					case STRING:
+						CommandLineOption<String> stringOption = (CommandLineOption<String>)options.get(keyValue[0]);
+						if (keyValue.length == 2) {
+							stringOption.setValue(new String(keyValue[1]));
+						}
+						else {
+							parseErrors.add("Option should have a key and a value.");
+							}
+						break;
+					
+					case INTEGER:
+						CommandLineOption<Integer> integerOption = (CommandLineOption<Integer>)options.get(keyValue[0]);
+						if (keyValue.length == 2) {
+							integerOption.setValue(new Integer(keyValue[1]));
+						}
+						else {
+							parseErrors.add("Option should have a key and a value.");
+						}
+						break;
+						
 					default:
 						parseErrors.add("Unrecognize option type.");						
 				}

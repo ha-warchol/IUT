@@ -2,6 +2,7 @@ package edu.iut.gui.widget.agenda;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -30,6 +31,26 @@ public class ControlAgendaViewPanel extends JPanel {
 		this.agendaViewLayout = layerLayout;
 		this.contentPane = contentPane;
 		/** EX3: REMPLACEMENT DU BOUTON NEXT */
+		this.add(Spinner());
+	}
+	private JSpinner Spinner(){
+		JSpinner date = new JSpinner();
+		Calendar cal = Calendar.getInstance();
+		String[] months = { "January", "February", "March", "April", "May", "June",
+				"July", "August", "September", "October", "November", "December" };
+		JComboBox monthsList = new JComboBox(months);
+		monthsList.setSelectedIndex(cal.get(Calendar.MONTH));
+		
+		String[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+		JComboBox daysList = new JComboBox(days);
+		daysList.setSelectedIndex(cal.get(Calendar.DAY_OF_WEEK));
+
+		SpinnerModel spinner = new SpinnerNumberModel(cal.get(Calendar.YEAR), 2010, 2020, 1);
+		
+		date.add((Component)spinner);
+		date.add(monthsList);
+		date.add(daysList);
+		return date;
 	}
 	
 	public int getYear() {
@@ -41,5 +62,4 @@ public class ControlAgendaViewPanel extends JPanel {
 	public int getDay() {
 		return selectedDay;
 	}
-	
 }
