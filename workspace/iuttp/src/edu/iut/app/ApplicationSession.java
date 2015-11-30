@@ -5,6 +5,8 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JFrame;
+
 public class ApplicationSession {
 	
 	protected ResourceBundle resourceBundle;
@@ -13,6 +15,7 @@ public class ApplicationSession {
 	protected Logger sessionExceptionLogger;
 	protected String[] months;
 	protected String[] days;
+	protected JFrame myFrame;
 
 
 	private static ApplicationSession session = null;

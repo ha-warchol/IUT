@@ -4,6 +4,8 @@ import java.util.Locale;
 
 import edu.iut.app.CommandLineOption;
 import edu.iut.app.CommandLineParser;
+import edu.iut.app.ApplicationSession;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
