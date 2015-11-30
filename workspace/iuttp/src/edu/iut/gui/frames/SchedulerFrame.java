@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
+import edu.iut.app.ApplicationSession;
 import edu.iut.gui.widget.agenda.AgendaPanelFactory;
 import edu.iut.gui.widget.agenda.ControlAgendaViewPanel;
 import edu.iut.gui.widget.agenda.AgendaPanelFactory.ActiveView;
@@ -46,68 +47,97 @@ public class SchedulerFrame extends JFrame {
 		this.setContentPane(splitPane);
 
 		JMenuBar menuBar = new JMenuBar();
-		JMenu menu, menu2, menu2_3, menu3;	
-		JMenuItem menuItem, menuItem2, menuItem3;
-
-		/* File Menu */
+		JMenu menu, menu2;
+		JMenuItem menuItem;
+		ActionListener nonImplemente = new ActionListener() {
+			public void actionPerformed(ActionEvent arg0){
+				JOptionPane.showMessageDialog(null, ApplicationSession.instance().getString("nonImplemente"), "WARNING", 0);
+			}
+		};
 		/** EX4 : MENU : UTILISER L'AIDE FOURNIE DANS LE TP**/
+		/* FILE MENU */
+		menu = new JMenu(ApplicationSession.instance().getString("file"));
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("load"));
+		menuItem.addActionListener(nonImplemente);
+		menu.add(menuItem);
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("save"));
+		menuItem.addActionListener(nonImplemente);
+		menu.add(menuItem);
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("quit"));
+		menuItem.addActionListener(nonImplemente);
+		menu.add(menuItem);
 
+		/* EDIT MENU */
 
-		menu = new JMenu("File");
-		menu2 = new JMenu("Edit");
-		menu2_3 = new JMenu("View");
-		menu3 = new JMenu("Help");
-		menuItem = new JMenuItem("Month");
-		menuItem2 = new JMenuItem("Day");
-		menuItem3 = new JMenuItem("Week");
-		menu.add(menu2);
+		menu = new JMenu(ApplicationSession.instance().getString("edit"));
+		menu2 = new JMenu(ApplicationSession.instance().getString("view"));
+
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("day"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0){
+				layerLayout.show(contentPane, ActiveView.DAY_VIEW.name());
+			}
+		});
 		menu2.add(menuItem);
-		menu2.add(menuItem2);
-		menu2.add(menuItem3);
-		menuBar.add(menu);
-		menuBar.add(menu2);
-		menuBar.add(menu3);
-		menuItem3.addActionListener(new ActionListener(){
+
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("week"));
+		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0){
-				agendaViewPanel.next(contentPane.weekView);
+				layerLayout.show(contentPane, ActiveView.WEEK_VIEW.name());
 			}
 		});
-		menuItem3.addActionListener(new ActionListener(){
+		menu2.add(menuItem);
+
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("month"));
+		menuItem.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
-				agendaViewPanel.next(contentPane);
+				layerLayout.show(contentPane, ActiveView.MONTH_VIEW.name());
 			}
 		});
+		menu2.add(menuItem);
+		menu.add(menu2);
 
+		/* HELP MENU */
 
-	this.setJMenuBar(menuBar);
-	this.pack();
-	layerLayout.next(contentPane);
-}
+		menu = new JMenu(ApplicationSession.instance().getString("help"));
 
-public SchedulerFrame() {
-	super();
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("display"));
+		menuItem.addActionListener(nonImplemente);
+		menu.add(menuItem);
 
-	addWindowListener (new WindowAdapter(){
-		public void windowClosing (WindowEvent e){
-			System.exit(0);
-		}
-	});
-	contentPane = null;
-	dayView = null;
-	weekView = null;
-	monthView = null;
-	agendaPanelFactory = null;
-	setupUI();
+		menuItem = new JMenuItem(ApplicationSession.instance().getString("about"));
+		menuItem.addActionListener(nonImplemente);
+		menu.add(menuItem);
 
-}
-public SchedulerFrame(String title) {
-	super(title);
-	addWindowListener (new WindowAdapter(){
-		public void windowClosing (WindowEvent e){
-			System.exit(0);
-		}
-	});
-	setupUI();
-}
+		this.setJMenuBar(menuBar);
+		this.pack();
+		layerLayout.next(contentPane);
+	}
+
+	public SchedulerFrame() {
+		super();
+
+		addWindowListener (new WindowAdapter(){
+			public void windowClosing (WindowEvent e){
+				System.exit(0);
+			}
+		});
+		contentPane = null;
+		dayView = null;
+		weekView = null;
+		monthView = null;
+		agendaPanelFactory = null;
+		setupUI();
+
+	}
+	public SchedulerFrame(String title) {
+		super(title);
+		addWindowListener (new WindowAdapter(){
+			public void windowClosing (WindowEvent e){
+				System.exit(0);
+			}
+		});
+		setupUI();
+	}
 
 }
