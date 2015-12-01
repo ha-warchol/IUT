@@ -66,6 +66,7 @@ public class SchedulerFrame extends JFrame {
 		menuItem = new JMenuItem(ApplicationSession.instance().getString("quit"));
 		menuItem.addActionListener(nonImplemente);
 		menu.add(menuItem);
+		menuBar.add(menu);
 
 		/* EDIT MENU */
 
@@ -96,6 +97,7 @@ public class SchedulerFrame extends JFrame {
 		});
 		menu2.add(menuItem);
 		menu.add(menu2);
+		menuBar.add(menu);
 
 		/* HELP MENU */
 
@@ -108,7 +110,9 @@ public class SchedulerFrame extends JFrame {
 		menuItem = new JMenuItem(ApplicationSession.instance().getString("about"));
 		menuItem.addActionListener(nonImplemente);
 		menu.add(menuItem);
-
+		
+		menuBar.add(menu);
+		
 		this.setJMenuBar(menuBar);
 		this.pack();
 		layerLayout.next(contentPane);
