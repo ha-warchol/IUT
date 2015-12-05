@@ -26,11 +26,14 @@ public class WeekPanel extends EventPanel {
 			this.name = name;
 			this.shortName = shortName;
 		}
-		
+		/**
+		 * Obtenir le nom court du jour
+		 * @return Le nom court du jour
+		 */
 		public String getShortName() {
 			return shortName;
 		}
-		
+
 		public String toString() {
 			return name;
 		}

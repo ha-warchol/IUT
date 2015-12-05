@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="javadoc">
     <target name="javadoc">
-        <javadoc access="public" author="true" classpath="." destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" source="1.8" sourcefiles="src/edu/iut/app/ApplicationSession.java" sourcepath="src" splitindex="true" use="true" version="true"/>
+        <javadoc access="public" author="true" classpath="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.junit_4.12.0.v201504281640/junit.jar:/Applications/Eclipse.app/Contents/Eclipse/plugins/org.hamcrest.core_1.3.0.v201303031735.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="edu.iut.gui.widget.agenda,edu.iut.filter,edu.iut.gui.frames,edu.iut.tests,edu.iut.app,edu.iut.tools,edu.iut.gui.listeners,edu.iut.exceptions" source="1.8" sourcepath="src" splitindex="true" use="true" version="true"/>
     </target>
 </project>

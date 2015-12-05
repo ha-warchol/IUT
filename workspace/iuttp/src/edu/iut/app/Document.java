@@ -10,9 +10,18 @@ public class Document {
 		this.documentURI=documentURI;
 	}
 	
+	/**
+	 * Changer l'URI d'un document
+	 * @param number URI
+	 */
 	public void setDocumentURI(String number) {
 		this.documentURI = number;
 	}
+	
+	/**
+	 * Obtenir l'URI d'un document
+	 * @return URI
+	 */
 	public String getDocumentURI() {
 		return documentURI;
 	}

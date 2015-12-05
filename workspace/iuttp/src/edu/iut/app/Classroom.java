@@ -10,9 +10,18 @@ public class Classroom {
 		this.classRoomNumber = classRoomNumber;
 	}
 	
+	/**
+	 * Changer le numero de la salle
+	 * @param number Numero de salle à mettre
+	 */
 	public void setClassroomNumber(String number) {
 		classRoomNumber=number;
 	}
+	
+	/**
+	 * 
+	 * @return Renvoie le numero de la salle
+	 */
 	public String getClassRoomNumber() {
 		return classRoomNumber;
 	}

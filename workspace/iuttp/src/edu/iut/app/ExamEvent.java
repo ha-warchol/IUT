@@ -18,23 +18,43 @@ public class ExamEvent {
 	protected ArrayList<Person> jury;
 	protected Classroom classroom;
 	protected ArrayList<Document> documents;
-
+	
+	/**
+	 * Obtenir la date d'examen
+	 * @return Date
+	 */
 	public Date getExamDate(){
 		return examDate;
 	}
-
+	
+	/**
+	 * Obtenir la personne qui passe l'examen
+	 * @return Personne
+	 */
 	public Person getStudent(){
 		return student;
 	}
-
+	
+	/**
+	 * Obtenir la liste des jury pour un examen
+	 * @return Liste de jury
+	 */
 	public ArrayList<Person> sonJury(){
 		return jury;
 	}
 	
+	/**
+	 * Obtenir la salle où se déroule l'examen
+	 * @return Salle
+	 */
 	public Classroom getClassroom(){
 		return classroom;
 	}
 	
+	/**
+	 * Obtenir la liste des documents
+	 * @return Liste de documents
+	 */
 	public ArrayList<Document> sesDocuments(){
 		return documents;
 	}
