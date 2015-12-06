@@ -35,14 +35,14 @@ public class ControlAgendaViewPanel extends JPanel {
 		JPanel setDate = new JPanel();
 		Calendar c = Calendar.getInstance();
 		String [] months = ApplicationSession.instance().getMonths();
-		JComboBox monthsList = new JComboBox(months);
+		JComboBox <String> monthsList = new JComboBox<String>(months);
 		monthsList.setSelectedIndex(c.get(Calendar.MONTH));
 		
 		String [] days = ApplicationSession.instance().getDays();
-		JComboBox daysList = new JComboBox(days);
+		JComboBox <String> daysList = new JComboBox<String>(days);
 		daysList.setSelectedIndex(c.get(Calendar.DAY_OF_WEEK));
 		
-		SpinnerModel spinner = new SpinnerNumberModel(c.get(Calendar.YEAR), 2010, 2020, 1);
+		SpinnerModel spinner = new SpinnerNumberModel(c.get(Calendar.YEAR), c.get(Calendar.YEAR)-5,c.get(Calendar.YEAR)+5, 1);
 		JSpinner spin = new JSpinner(spinner);
 		
 		setDate.add(spin);
@@ -52,13 +52,26 @@ public class ControlAgendaViewPanel extends JPanel {
 		add(setDate);
 	}
 	
-	
+	/**
+	 * Obtenir l'année sélectionnée
+	 * @return Année
+	 */
 	public int getYear() {
 		return selectedYear;
 	}
+	
+	/**
+	 * Obtenir le mois sélectionné
+	 * @return Mois
+	 */
 	public int getMonth() {
 		return selectedMonth;
 	}
+	
+	/**
+	 * Obtenir le jour sélectionné
+	 * @return Jour
+	 */
 	public int getDay() {
 		return selectedDay;
 	}

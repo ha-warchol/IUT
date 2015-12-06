@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import edu.iut.app.ExamEvent;
 
 public class CriteriaDateBefore implements ICriteriaDate {
-
+	
 	@Override
 	public LinkedList<ExamEvent> meetCriteria(LinkedList<ExamEvent> exam, Date date) {
 		LinkedList<ExamEvent> dateBefore = new LinkedList<ExamEvent>();

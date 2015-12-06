@@ -1,7 +1,7 @@
 package edu.iut.gui.widget.agenda;
 
 import java.awt.GridLayout;
-import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -11,6 +11,11 @@ import edu.iut.gui.widget.agenda.AgendaPanelFactory.ActiveView;
 import edu.iut.gui.widget.agenda.WeekPanel.WeekDayNames;
 
 public class MonthPanel extends EventPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public MonthPanel() {
 		super(ActiveView.MONTH_VIEW);

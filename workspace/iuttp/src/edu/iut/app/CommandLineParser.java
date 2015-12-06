@@ -6,11 +6,11 @@ import java.io.File;
 
 public class CommandLineParser<ValueType> {
 	
-	protected HashMap<String, CommandLineOption<ValueType>> options;
+	protected HashMap<String, CommandLineOption<?>> options;
 	protected ArrayList<String> parseErrors;
 		
 	public CommandLineParser() {
-		options = new HashMap<String, CommandLineOption<ValueType>>();
+		options = new HashMap<String, CommandLineOption<?>>();
 		parseErrors = new ArrayList<String>();
 	}
 	
@@ -55,6 +55,15 @@ public class CommandLineParser<ValueType> {
 						}
 						break;
 						
+					case NOVALUE:
+						CommandLineOption<Boolean> boolOption = (CommandLineOption<Boolean>)options.get(keyValue[0]);
+						if (keyValue.length == 2) {
+							boolOption.setValue(new Boolean(keyValue[1]));
+						}
+						else {
+							boolOption.setValue(new Boolean(true));
+						}
+						break;
 					default:
 						parseErrors.add("Unrecognize option type.");						
 				}

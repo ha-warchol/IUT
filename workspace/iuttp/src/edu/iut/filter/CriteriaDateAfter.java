@@ -6,7 +6,8 @@ import java.util.LinkedList;
 import edu.iut.app.ExamEvent;
 
 public class CriteriaDateAfter implements ICriteriaDate {
-
+	
+	
 	@Override
 	public LinkedList<ExamEvent> meetCriteria(LinkedList<ExamEvent> exam, Date date) {
 		LinkedList<ExamEvent> dateAfter = new LinkedList<ExamEvent>();

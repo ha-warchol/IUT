@@ -41,7 +41,10 @@ public class ApplicationSession {
 		
 	}
 	
-	
+	/**
+	 * Création du Singleton
+	 * @return ApplicationSession
+	 */
 	static public ApplicationSession instance() {
 		if (session == null) {			
 			session = new ApplicationSession();
@@ -49,26 +52,51 @@ public class ApplicationSession {
 		return session;
 	}
 	
+	/**
+	 * Obtenir le logger du GUI
+	 * @return Logge
+	 */
 	public Logger getGUILogger() {
 		return sessionGuiLogger;
 	}
+	
+	/**
+	 * Obtenir le logger des exceptions
+	 * @return Logger
+	 */
 	public Logger getExceptionLogger() {
 		return sessionExceptionLogger;
 	}
-	
+	/**
+	 * Changer le Locale
+	 * @param locale Nouveau Locale
+	 */
 	public void setLocale(Locale locale){
 		this.locale = locale;
 		Locale.setDefault(this.locale);
 		resourceBundle=ResourceBundle.getBundle("edu.iut.resources.strings.res");
 	}
 	
+	/**
+	 * Obtenir la traduction selon une clé donnée
+	 * @param key Clé du mot à traduire
+	 * @return Traduction
+	 */
 	public String getString(String key) {
 		return resourceBundle.getString(key);
 	}
-	
+	/**
+	 * Obtenir la liste des jours
+	 * @return Liste de jours
+	 */
 	public String[] getDays() {
 		return days;
 	}
+	
+	/**
+	 * Obtenir la liste des mois
+	 * @return Liste de mois
+	 */
 	public String[] getMonths() {
 		return months;
 	}
